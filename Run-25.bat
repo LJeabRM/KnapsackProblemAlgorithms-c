@@ -1,3 +1,3 @@
 @echo off
-knapsack.exe < knapsack25.txt
+main.exe < knapsack25.txt
 pause

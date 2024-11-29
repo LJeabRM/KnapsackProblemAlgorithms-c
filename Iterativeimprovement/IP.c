@@ -2,10 +2,31 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+// Function to calculate the total value of items in the knapsack
+static int knapsackValue(Item items[], int n, int capacity, int *currentWeight) {
+    int totalValue = 0;
+    *currentWeight = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (items[i].isPick) {
+            *currentWeight += items[i].weight;
+            totalValue += items[i].value;
+        }
+    }
+
+    // If the weight exceeds capacity, return -1 as an invalid solution
+    if (*currentWeight > capacity) {
+        return -1;
+    }
+
+    return totalValue;
+}
+
 // Function to calculate the value-to-weight ratio and sort items
 static void sortItemsByRatio(Item items[], double ratio[], int n) {
     for (int i = 0; i < n; i++) {
-        ratio[i] = (double)items[i].value / items[i].weight;
+        ratio[i] = (items[i].weight > 0) ? (double)items[i].value / items[i].weight : 0.0;
+        items[i].isPick = 0; // Initialize all items as not picked
     }
 
     // Sort items by ratio in descending order
@@ -28,14 +49,13 @@ static void sortItemsByRatio(Item items[], double ratio[], int n) {
 
 // Iterative Improvement Knapsack Function
 int iterativeImprovementKnapsack(int capacity, Item items[], int n) {
-    double* ratio = (double*)malloc(n * sizeof(double));
+    double *ratio = (double *)malloc(n * sizeof(double));
     if (!ratio) {
         printf("Error: Memory allocation failed for ratio array.\n");
         return -1;
     }
 
     int currentWeight = 0;
-    int currentValue = 0;
 
     // Step 1: Sort items by value-to-weight ratio
     sortItemsByRatio(items, ratio, n);
@@ -43,47 +63,49 @@ int iterativeImprovementKnapsack(int capacity, Item items[], int n) {
     // Step 2: Initialize solution with greedy approach
     for (int i = 0; i < n; i++) {
         if (currentWeight + items[i].weight <= capacity) {
+            items[i].isPick = 1; // Pick the item
             currentWeight += items[i].weight;
-            currentValue += items[i].value;
         }
     }
 
+    int currentValue = knapsackValue(items, n, capacity, &currentWeight);
+
     // Step 3: Iteratively improve the solution
     int improved = 1;
-    int maxIterations = 1000; // Limit iterations to avoid infinite loop
-    int iteration = 0;
-
-    while (improved && iteration < maxIterations) {
+    while (improved) {
         improved = 0;
-        iteration++;
 
+        // Try swapping items in the knapsack with items outside
         for (int i = 0; i < n; i++) {
-            if (currentWeight >= items[i].weight) {
-                // Try removing the item
-                currentWeight -= items[i].weight;
-                currentValue -= items[i].value;
+            if (items[i].isPick) {
+                // Remove the item and check if the value increases
+                items[i].isPick = 0;
+                int tempWeight = 0;
+                int tempValue = knapsackValue(items, n, capacity, &tempWeight);
 
-                for (int j = 0; j < n; j++) {
-                    if (currentWeight + items[j].weight <= capacity && j != i) {
-                        // Try adding another item
-                        int newWeight = currentWeight + items[j].weight;
-                        int newValue = currentValue + items[j].value;
-
-                        if (newValue > currentValue) {
-                            currentValue = newValue;
-                            currentWeight = newWeight;
-                            improved = 1;
-                            break; // Restart the improvement loop
-                        }
-                    }
-                }
-
-                // Revert removal if no improvement
-                if (!improved) {
-                    currentWeight += items[i].weight;
-                    currentValue += items[i].value;
+                if (tempValue > currentValue) {
+                    currentValue = tempValue;
+                    currentWeight = tempWeight;
+                    improved = 1;
+                    break; // Restart the improvement loop
                 } else {
-                    break; // Restart the loop if improved
+                    // Revert if no improvement
+                    items[i].isPick = 1;
+                }
+            } else {
+                // Try adding the item if it is not in the knapsack
+                items[i].isPick = 1;
+                int tempWeight = 0;
+                int tempValue = knapsackValue(items, n, capacity, &tempWeight);
+
+                if (tempValue > currentValue && tempWeight <= capacity) {
+                    currentValue = tempValue;
+                    currentWeight = tempWeight;
+                    improved = 1;
+                    break; // Restart the improvement loop
+                } else {
+                    // Revert if no improvement
+                    items[i].isPick = 0;
                 }
             }
         }

@@ -3,7 +3,6 @@
 #include <time.h>
 #include "Dynamic Programming/DP.h"   // Include Dynamic Programming header
 #include "Simulated Annealing/SA.h"  // Include Simulated Annealing header
-#include "Bruteforce/BF.h"           // Include Bruteforce header
 #include "Greedy/Greedy.h"           // Include Greedy header
 #include "Genetic Algorithm/GA.h"   // Include Genetic Algorithm
 #include "Iterativeimprovement/IP.h" // Include Iterativeimprovement
@@ -96,18 +95,6 @@ int main() {
     double durationIP = ((double)(stopIP - startIP)) / CLOCKS_PER_SEC * 1000;
     printf("Value = %d\n", maxValueIP);
     printf("Execution Time (IP): %.2lf ms\n", durationIP);
-
-    printf("===================================================\n");
-
-
-    // Solve using Bruteforce
-    printf("Bruteforce:\n");
-    clock_t startBF = clock();
-    int maxValueBF = knapsackBF(maxWeight, items, n);
-    clock_t stopBF = clock();
-    double durationBF = ((double)(stopBF - startBF)) / CLOCKS_PER_SEC * 1000;
-    printf("Value = %d\n", maxValueBF);
-    printf("Execution Time (BF): %.2lf ms\n", durationBF);
 
     printf("===================================================\n");
 
