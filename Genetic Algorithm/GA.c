@@ -54,13 +54,9 @@ static void perform_crossover(int* parent1, int* parent2, int num_items, int* ch
 }
 
 // Genetic Algorithm function
-int genetic_algorithm(int capacity, Item* items, int num_items) {
-    // Default parameters
-    int population_size = 50;
-    int generations = 100;
-    double mutation_rate = 0.05;
-    int elitism_count = 5;
-
+int genetic_algorithm(int capacity, Item* items, int num_items, 
+                      int population_size, int generations, 
+                      double mutation_rate, int elitism_count) {
     srand(time(NULL)); // Seed the random number generator
 
     int** population = create_population(population_size, num_items);

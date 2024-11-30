@@ -3,7 +3,9 @@
 
 #include "Item.h"
 
-// Function declaration for Genetic Algorithm
-int genetic_algorithm(int capacity, Item* items, int num_items);
+// Updated function declaration
+int genetic_algorithm(int capacity, Item* items, int num_items, 
+                      int population_size, int generations, 
+                      double mutation_rate, int elitism_count);
 
 #endif // GA_H

@@ -76,17 +76,6 @@ int main() {
 
     printf("===================================================\n");
 
-    // Solve using Genetic Algorithm
-    printf("Genetic Algorithm:\n");
-    clock_t startGA = clock();
-    int maxValueGA = genetic_algorithm(maxWeight, items, n);
-    clock_t stopGA = clock();
-    double durationGA = ((double)(stopGA - startGA)) / CLOCKS_PER_SEC * 1000;
-    printf("Value = %d\n", maxValueGA);
-    printf("Execution Time (GA): %.2lf ms\n", durationGA);
-
-    printf("===================================================\n");
-
     // Solve using Iterative Improvement
     printf("Iterative Improvement:\n");
     clock_t startIP = clock();
@@ -95,6 +84,28 @@ int main() {
     double durationIP = ((double)(stopIP - startIP)) / CLOCKS_PER_SEC * 1000;
     printf("Value = %d\n", maxValueIP);
     printf("Execution Time (IP): %.2lf ms\n", durationIP);
+
+    printf("===================================================\n");
+
+    // Solve using Genetic Algorithm
+    int population_size = 50;
+    int generations = 100;
+    double mutation_rate = 0.05;
+    int elitism_count = 5;
+
+    printf("Genetic Algorithm\n");
+    printf("\nPopulation Size: %d\n", population_size);
+    printf("Generations Quantity: %d\n", generations);
+    printf("Mutation Rate: %.6f\n", mutation_rate);
+    printf("Elitism Count: %d\n", elitism_count);
+
+    clock_t startGA = clock();
+    int maxValueGA = genetic_algorithm(maxWeight, items, n, population_size, generations, mutation_rate, elitism_count);
+    clock_t stopGA = clock();
+    double durationGA = ((double)(stopGA - startGA)) / CLOCKS_PER_SEC;
+
+    printf("\nMaximum Cost: %d\n", maxValueGA);
+    printf("Run Time: %.6f seconds\n", durationGA);
 
     printf("===================================================\n");
 
