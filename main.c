@@ -6,6 +6,7 @@
 #include "Greedy/Greedy.h"           // Include Greedy header
 #include "Genetic Algorithm/GA.h"   // Include Genetic Algorithm
 #include "Iterativeimprovement/IP.h" // Include Iterativeimprovement
+#include "Project_Knapsack/Project_Knapsack.h" // Include Project Knapsack header
 #include "Item.h"
 
 
@@ -106,6 +107,17 @@ int main() {
 
     printf("\nMaximum Cost: %d\n", maxValueGA);
     printf("Run Time: %.6f seconds\n", durationGA);
+
+    printf("===================================================\n");
+
+    // Solve using Project Knapsack
+    printf("Project Knapsack:\n");
+    clock_t startProject = clock();
+    int maxValueProject = knapsackProject(maxWeight, items, n);
+    clock_t stopProject = clock();
+    double durationProject = ((double)(stopProject - startProject)) / CLOCKS_PER_SEC * 1000;
+    printf("Value = %d\n", maxValueProject);
+    printf("Execution Time (Project Knapsack): %.2lf ms\n", durationProject);
 
     printf("===================================================\n");
 
