@@ -9,7 +9,6 @@
 #include "Project_Knapsack/Project_Knapsack.h" // Include Project Knapsack header
 #include "Item.h"
 
-
 int main() {
     int n;
     // Read the number of items from input
@@ -110,14 +109,36 @@ int main() {
 
     printf("===================================================\n");
 
-    // Solve using Project Knapsack
-    printf("Project Knapsack:\n");
-    clock_t startProject = clock();
-    int maxValueProject = knapsackProject(maxWeight, items, n);
-    clock_t stopProject = clock();
-    double durationProject = ((double)(stopProject - startProject)) / CLOCKS_PER_SEC * 1000;
-    printf("Value = %d\n", maxValueProject);
-    printf("Execution Time (Project Knapsack): %.2lf ms\n", durationProject);
+    // Solve using Project Knapsack with Adaptive Genetic Algorithm
+    int adaptive_population_size = 50;
+    int adaptive_generations = 100;
+    double initial_mutation_rate = 0.05;
+    int adaptive_elitism_count = 5;
+
+    printf("Project Knapsack (Adaptive Genetic Algorithm):\n");
+    printf("\nPopulation Size: %d\n", adaptive_population_size);
+    printf("Generations Quantity: %d\n", adaptive_generations);
+    printf("Initial Mutation Rate: %.6f\n", initial_mutation_rate);
+    printf("Elitism Count: %d\n", adaptive_elitism_count);
+
+    clock_t startAdaptiveGA = clock();
+
+    // function call
+    int maxValueAdaptiveGA = project_genetic_algorithm_adaptive_mutation(
+        maxWeight,
+        items,
+        n,
+        adaptive_population_size,
+        adaptive_generations,
+        initial_mutation_rate,
+        adaptive_elitism_count
+    );
+
+    clock_t stopAdaptiveGA = clock();
+    double durationAdaptiveGA = ((double)(stopAdaptiveGA - startAdaptiveGA)) / CLOCKS_PER_SEC;
+
+    printf("\nMaximum Cost: %d\n", maxValueAdaptiveGA);
+    printf("Run Time: %.6f seconds\n", durationAdaptiveGA);
 
     printf("===================================================\n");
 

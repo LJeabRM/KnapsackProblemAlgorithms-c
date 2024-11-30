@@ -6,6 +6,7 @@
         "iostream": "cpp",
         "greedy.h": "c",
         "ga.h": "c",
-        "ip.h": "c"
+        "ip.h": "c",
+        "random": "c"
     }
 }
