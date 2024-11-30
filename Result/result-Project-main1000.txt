@@ -1,0 +1,38 @@
+round 1 :
+===================================================
+Project Knapsack (Adaptive Genetic Algorithm):
+
+Population Size: 50
+Generations Quantity: 100
+Initial Mutation Rate: 0.050000
+Elitism Count: 5
+
+Maximum Cost: 219076
+Run Time: 0.214000 seconds
+===================================================
+
+round 2 :
+===================================================
+Project Knapsack (Adaptive Genetic Algorithm):
+
+Population Size: 50
+Generations Quantity: 100
+Initial Mutation Rate: 0.050000
+Elitism Count: 5
+
+Maximum Cost: 223079
+Run Time: 0.203000 seconds
+===================================================
+
+round 3 :
+===================================================
+Project Knapsack (Adaptive Genetic Algorithm):
+
+Population Size: 50
+Generations Quantity: 100
+Initial Mutation Rate: 0.050000
+Elitism Count: 5
+
+Maximum Cost: 223253
+Run Time: 0.198000 seconds
+===================================================

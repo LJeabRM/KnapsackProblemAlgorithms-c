@@ -10,10 +10,10 @@ typedef struct {
 } Individual;
 
 // Function prototypes
-void initialize_population(Individual* population, int population_size, int n);
+void initialize_population(Individual* population, int population_size, int n, Item* items, int maxWeight);
 void evaluate_population(Individual* population, int population_size, Item* items, int n, int maxWeight);
 void crossover(Individual* parent1, Individual* parent2, Individual* offspring, int n);
-void mutate(Individual* individual, int n, double mutation_rate);
+void mutate(Individual* individual, int n, double mutation_rate, Item* items, int maxWeight);
 void sort_population_by_fitness(Individual* population, int population_size);
 void copy_individual(Individual* dest, Individual* src, int n);
 int calculate_fitness(int* chromosome, Item* items, int n, int maxWeight);
@@ -27,7 +27,7 @@ int project_genetic_algorithm(int maxWeight, Item* items, int n, int population_
     for (int i = 0; i < population_size; ++i) {
         population[i].chromosome = (int*)malloc(n * sizeof(int));
     }
-    initialize_population(population, population_size, n);
+    initialize_population(population, population_size, n, items, maxWeight);
 
     for (int gen = 0; gen < generations; ++gen) {
         // Evaluate population
@@ -60,7 +60,7 @@ int project_genetic_algorithm(int maxWeight, Item* items, int n, int population_
 
         // Apply mutation
         for (int i = elitism_count; i < population_size; ++i) {
-            mutate(&new_population[i], n, mutation_rate);
+            mutate(&new_population[i], n, mutation_rate, items, maxWeight);
         }
 
         // Replace old population
@@ -96,7 +96,7 @@ int project_genetic_algorithm_adaptive_mutation(int maxWeight, Item* items, int 
     for (int i = 0; i < population_size; ++i) {
         population[i].chromosome = (int*)malloc(n * sizeof(int));
     }
-    initialize_population(population, population_size, n);
+    initialize_population(population, population_size, n, items, maxWeight);
 
     int best_fitness = 0;
 
@@ -146,7 +146,7 @@ int project_genetic_algorithm_adaptive_mutation(int maxWeight, Item* items, int 
 
         // Apply mutation
         for (int i = elitism_count; i < population_size; ++i) {
-            mutate(&new_population[i], n, mutation_rate);
+            mutate(&new_population[i], n, mutation_rate, items, maxWeight);
         }
 
         // Replace old population
@@ -170,12 +170,23 @@ int project_genetic_algorithm_adaptive_mutation(int maxWeight, Item* items, int 
     return best_fitness;
 }
 
-
 // Helper functions
-void initialize_population(Individual* population, int population_size, int n) {
+void initialize_population(Individual* population, int population_size, int n, Item* items, int maxWeight) {
     for (int i = 0; i < population_size; ++i) {
+        int weight = 0;
         for (int j = 0; j < n; ++j) {
-            population[i].chromosome[j] = rand() % 2;
+            population[i].chromosome[j] = rand() % 2; // Random 0 or 1
+            if (population[i].chromosome[j] == 1) {
+                weight += items[j].weight;
+            }
+        }
+        // Ensure valid solution
+        while (weight > maxWeight) {
+            int idx = rand() % n; // Randomly turn off an item
+            if (population[i].chromosome[idx] == 1) {
+                population[i].chromosome[idx] = 0;
+                weight -= items[idx].weight;
+            }
         }
     }
 }
@@ -193,9 +204,9 @@ int calculate_fitness(int* chromosome, Item* items, int n, int maxWeight) {
             weight += items[i].weight;
             value += items[i].value;
         }
-        if (weight > maxWeight) {
-            return 0; // Invalid solution
-        }
+    }
+    if (weight > maxWeight) {
+        return value - (weight - maxWeight) * 2; // Penalize overweight solutions
     }
     return value;
 }
@@ -210,10 +221,31 @@ void crossover(Individual* parent1, Individual* parent2, Individual* offspring, 
     }
 }
 
-void mutate(Individual* individual, int n, double mutation_rate) {
+void mutate(Individual* individual, int n, double mutation_rate, Item* items, int maxWeight) {
+    int weight = 0;
+    for (int i = 0; i < n; ++i) {
+        if (individual->chromosome[i] == 1) {
+            weight += items[i].weight;
+        }
+    }
+
     for (int i = 0; i < n; ++i) {
         if ((double)rand() / RAND_MAX < mutation_rate) {
-            individual->chromosome[i] = 1 - individual->chromosome[i];
+            individual->chromosome[i] = 1 - individual->chromosome[i]; // Flip bit
+            if (individual->chromosome[i] == 1) {
+                weight += items[i].weight;
+            } else {
+                weight -= items[i].weight;
+            }
+        }
+    }
+
+    // Ensure valid solution after mutation
+    while (weight > maxWeight) {
+        int idx = rand() % n;
+        if (individual->chromosome[idx] == 1) {
+            individual->chromosome[idx] = 0;
+            weight -= items[idx].weight;
         }
     }
 }
