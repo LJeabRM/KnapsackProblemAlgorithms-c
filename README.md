@@ -29,6 +29,8 @@ This repository provides implementations of various algorithms to solve the 0/1 
   - `knapsack25.txt`: Input file for a problem with 25 items.
   - `knapsack50.txt`: Input file for a problem with 50 items.
   - `knapsack100.txt`: Input file for a problem with 100 items.
+  - `knapsack500.txt`: Input file for a problem with 500 items.
+  - `knapsack1000.txt`: Input file for a problem with 1000 items.
 - ⚙️ **Batch Files**:
   - `Run-25.bat`, `Run-50.bat`, `Run-100.bat`: Scripts to run the program with specific inputs.
 
