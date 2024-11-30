@@ -11,6 +11,7 @@ This repository provides implementations of various algorithms to solve the 0/1 
 4. [**Greedy Algorithm**](Greedy): Heuristic method that prioritizes items with the highest value-to-weight ratio.
 5. [**Simulated Annealing (SA)**](Simulated%20Annealing): Optimization method inspired by annealing in metallurgy.
 6. [**Iterative Improvement (IP)**](Iterativeimprovement): Improves an initial solution iteratively until no better solution is found.
+7. [**Project Knapsack**](Project_Knapsack): A project-specific implementation to solve the Knapsack problem with additional features, such as integration of multiple algorithms for comparison.
 
 ---
 
@@ -23,6 +24,7 @@ This repository provides implementations of various algorithms to solve the 0/1 
   - [Greedy](Greedy): `Greedy/Greedy.c`, `Greedy/Greedy.h`
   - [Simulated Annealing](Simulated%20Annealing): `Simulated Annealing/SA.c`, `Simulated Annealing/SA.h`
   - [Iterative Improvement](Iterativeimprovement): `Iterativeimprovement/IP.c`, `Iterativeimprovement/IP.h`
+  - [Project Knapsack](Project_Knapsack): `Project_Knapsack/Project_Knapsack.c`, `Project_Knapsack/Project_Knapsack.h`
 - 📄 **Input Files**:
   - `knapsack25.txt`: Input file for a problem with 25 items.
   - `knapsack50.txt`: Input file for a problem with 50 items.
@@ -36,9 +38,11 @@ This repository provides implementations of various algorithms to solve the 0/1 
 To compile the program, use the following command in a terminal or command prompt:
 
 ```bash
-gcc -o "main.exe" "main.c" "Bruteforce/BF.c" "Dynamic Programming/DP.c" "Genetic Algorithm/GA.c" "Greedy/Greedy.c" "Simulated Annealing/SA.c" "Iterativeimprovement/IP.c" -I. -lm 
+ gcc -o "main.exe" "main.c" "Bruteforce/BF.c" "Dynamic Programming/DP.c" "Genetic Algorithm/GA.c" "Greedy/Greedy.c" "Simulated Annealing/SA.c" "Iterativeimprovement/IP.c" "Project_Knapsack/Project_Knapsack.c" -I. -lm
 ```
+
 ---
+
 ## 📝 **Algorithm Details**
 
 ### **1. Bruteforce (BF)**  
@@ -52,7 +56,7 @@ gcc -o "main.exe" "main.c" "Bruteforce/BF.c" "Dynamic Programming/DP.c" "Genetic
 - Efficiently solves the problem by breaking it down into smaller subproblems and storing intermediate results in a table.  
 - Solves the problem in a bottom-up manner, avoiding redundant calculations.  
 - Guarantees an optimal solution.  
-- **Time Complexity**: \(O(n \times W)\), where \(n\) is the number of items and \(W\) is the knapsack capacity.
+- **Time Complexity**: \(O(n 	imes W)\), where \(n\) is the number of items and \(W\) is the knapsack capacity.
 
 ---
 
@@ -89,4 +93,10 @@ gcc -o "main.exe" "main.c" "Bruteforce/BF.c" "Dynamic Programming/DP.c" "Genetic
 - Often used to refine heuristic solutions.  
 - **Time Complexity**: Depends on the number of iterations and neighboring solutions considered.
 
+---
 
+### **7. Project Knapsack**  
+- A project-specific implementation that utilizes a Genetic Algorithm (GA) to solve the 0/1 Knapsack Problem.
+- It integrates multiple genetic algorithm-based techniques, including elitism, crossover, mutation, and adaptive mutation, to optimize the selection of items for the knapsack.
+- The implementation provides a framework for evaluating the performance of the algorithm with different mutation rates and elitism counts, making it suitable for comparative analysis and practical applications.
+- **Time Complexity**: Varies depending on the algorithms used and their respective input parameters.
