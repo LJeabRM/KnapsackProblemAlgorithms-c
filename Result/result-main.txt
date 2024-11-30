@@ -1,0 +1,86 @@
+n = 25
+===================================================
+Dynamic Programming:
+Value = 1575
+Execution Time (DP): 0.00 ms
+===================================================
+Simulated Annealing:
+Value = 1575
+Execution Time (SA): 0.00 ms
+===================================================
+Greedy:
+Value = 1575
+Execution Time (Greedy): 0.00 ms
+===================================================
+Iterative Improvement:
+Value = 1575
+Execution Time (IP): 0.00 ms
+===================================================
+Genetic Algorithm
+
+Population Size: 50
+Generations Quantity: 100
+Mutation Rate: 0.050000
+Elitism Count: 5
+
+Maximum Cost: 1378
+Run Time: 0.003000 seconds
+===================================================
+
+n = 50
+===================================================
+Dynamic Programming:
+Value = 5825
+Execution Time (DP): 0.00 ms
+===================================================
+Simulated Annealing:
+Value = 5825
+Execution Time (SA): 0.00 ms
+===================================================
+Greedy:
+Value = 5825
+Execution Time (Greedy): 0.00 ms
+===================================================
+Iterative Improvement:
+Value = 5825
+Execution Time (IP): 0.00 ms
+===================================================
+Genetic Algorithm
+
+Population Size: 50
+Generations Quantity: 100
+Mutation Rate: 0.050000
+Elitism Count: 5
+
+Maximum Cost: 4375
+Run Time: 0.005000 seconds
+===================================================
+
+n = 100
+===================================================
+Dynamic Programming:
+Value = 21921
+Execution Time (DP): 4.00 ms
+===================================================
+Simulated Annealing:
+Value = 20223
+Execution Time (SA): 1.00 ms
+===================================================
+Greedy:
+Value = 21887
+Execution Time (Greedy): 0.00 ms
+===================================================
+Iterative Improvement:
+Value = 21921
+Execution Time (IP): 0.00 ms
+===================================================
+Genetic Algorithm
+
+Population Size: 50
+Generations Quantity: 100
+Mutation Rate: 0.050000
+Elitism Count: 5
+
+Maximum Cost: 16480
+Run Time: 0.013000 seconds
+===================================================
