@@ -1,5 +1,11 @@
 round 1 :
-===================================================
+====================================================================================
+This algorithm may run for longer durations to produce better results.
+The 'time limit' determines how long the algorithm will run.
+A higher time limit might give the algorithm more time to find an optimal solution.
+
+Please provide the time limit for the algorithm (in seconds): 20
+====================================================================================
 Project Knapsack (Adaptive Genetic Algorithm):
 
 Population Size: 50
@@ -7,12 +13,20 @@ Generations Quantity: 100
 Initial Mutation Rate: 0.050000
 Elitism Count: 5
 
-Maximum Cost: 112681
-Run Time: 0.111000 seconds
-===================================================
+Time Limit: 20 seconds
+------------------------------------------------------------------------------------
+Maximum Cost: 158447
+Run Time: 19.681000 seconds
+====================================================================================
 
 round 2 :
-===================================================
+====================================================================================
+This algorithm may run for longer durations to produce better results.
+The 'time limit' determines how long the algorithm will run.
+A higher time limit might give the algorithm more time to find an optimal solution.
+
+Please provide the time limit for the algorithm (in seconds): 60
+====================================================================================
 Project Knapsack (Adaptive Genetic Algorithm):
 
 Population Size: 50
@@ -20,12 +34,20 @@ Generations Quantity: 100
 Initial Mutation Rate: 0.050000
 Elitism Count: 5
 
-Maximum Cost: 109743
-Run Time: 0.107000 seconds
-===================================================
+Time Limit: 60 seconds
+------------------------------------------------------------------------------------
+Maximum Cost: 169826
+Run Time: 59.733000 seconds
+====================================================================================
 
 round 3 :
-===================================================
+====================================================================================
+This algorithm may run for longer durations to produce better results.
+The 'time limit' determines how long the algorithm will run.
+A higher time limit might give the algorithm more time to find an optimal solution.
+
+Please provide the time limit for the algorithm (in seconds): 120
+====================================================================================
 Project Knapsack (Adaptive Genetic Algorithm):
 
 Population Size: 50
@@ -33,32 +55,8 @@ Generations Quantity: 100
 Initial Mutation Rate: 0.050000
 Elitism Count: 5
 
-Maximum Cost: 106850
-Run Time: 0.104000 seconds
-===================================================
-
-round 4 :
-===================================================
-Project Knapsack (Adaptive Genetic Algorithm):
-
-Population Size: 50
-Generations Quantity: 100
-Initial Mutation Rate: 0.050000
-Elitism Count: 5
-
-Maximum Cost: 109210
-Run Time: 0.085000 seconds
-===================================================
-
-round 5 :
-===================================================
-Project Knapsack (Adaptive Genetic Algorithm):
-
-Population Size: 50
-Generations Quantity: 100
-Initial Mutation Rate: 0.050000
-Elitism Count: 5
-
-Maximum Cost: 115166
-Run Time: 0.091000 seconds
-===================================================
+Time Limit: 120 seconds
+------------------------------------------------------------------------------------
+Maximum Cost: 173864
+Run Time: 119.268000 seconds
+====================================================================================
