@@ -20,16 +20,3 @@ The dynamic programming solution follows these steps:
 1. Create a 2D array `dp[][]` where each entry represents the maximum value achievable with a given weight capacity.
 2. Fill the array using a bottom-up approach, iterating through each item and weight combination.
 3. After processing all items, the entry `dp[n][W]` (where `n` is the number of items and `W` is the maximum weight capacity) will contain the maximum value achievable.
-
-## 📥 Input Format
-
-The input consists of:
-- **n**: The number of items.
-- **W**: The maximum weight capacity of the knapsack.
-- **values[]**: An array of item values.
-- **weights[]**: An array of item weights.
-
-## 📤 Output Format
-
-The output consists of:
-- **Maximum Value**: The maximum total value that can be obtained without exceeding the weight capacity.
