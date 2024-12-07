@@ -21,15 +21,4 @@ The greedy solution works as follows:
 2. Sort the items in descending order of their value-to-weight ratio.
 3. Add items to the knapsack starting with the item having the highest ratio, and continue adding items or fractions of items until the knapsack reaches its capacity.
 
-## 📥 Input Format
 
-The input consists of:
-- **n**: The number of items.
-- **W**: The maximum weight capacity of the knapsack.
-- **values[]**: An array of item values.
-- **weights[]**: An array of item weights.
-
-## 📤 Output Format
-
-The output consists of:
-- **Maximum Value**: The maximum total value that can be obtained by selecting the items based on the greedy approach, possibly with fractional selections.
