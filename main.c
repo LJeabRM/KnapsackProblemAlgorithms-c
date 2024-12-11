@@ -48,8 +48,8 @@ int main() {
     int maxValueDP = knapsackDP(maxWeight, items, n);
     clock_t stopDP = clock();
     double durationDP = ((double)(stopDP - startDP)) / CLOCKS_PER_SEC * 1000;
-    printf("Value = %d\n", maxValueDP);
-    printf("Execution Time (DP): %.2lf ms\n", durationDP);
+    printf("Maximum Cost = %d\n", maxValueDP);
+    printf("Run Time (ms): %.2lf ms\n", durationDP);
 
     printf("===================================================\n");
 
@@ -59,8 +59,8 @@ int main() {
     int maxValueSA = knapsackSA(maxWeight, items, n);
     clock_t stopSA = clock();
     double durationSA = ((double)(stopSA - startSA)) / CLOCKS_PER_SEC * 1000;
-    printf("Value = %d\n", maxValueSA);
-    printf("Execution Time (SA): %.2lf ms\n", durationSA);
+    printf("Maximum Cost = %d\n", maxValueSA);
+    printf("Run Time (ms): %.2lf ms\n", durationSA);
 
     printf("===================================================\n");
 
@@ -70,8 +70,8 @@ int main() {
     int maxValueGreedy = knapsackGreedy(maxWeight, items, n);
     clock_t stopGreedy = clock();
     double durationGreedy = ((double)(stopGreedy - startGreedy)) / CLOCKS_PER_SEC * 1000;
-    printf("Value = %d\n", maxValueGreedy);
-    printf("Execution Time (Greedy): %.2lf ms\n", durationGreedy);
+    printf("Maximum Cost = %d\n", maxValueGreedy);
+    printf("Run Time (ms): %.2lf ms\n", durationGreedy);
 
     printf("===================================================\n");
 
@@ -81,8 +81,8 @@ int main() {
     int maxValueIP = iterativeImprovementKnapsack(maxWeight, items, n);
     clock_t stopIP = clock();
     double durationIP = ((double)(stopIP - startIP)) / CLOCKS_PER_SEC * 1000;
-    printf("Value = %d\n", maxValueIP);
-    printf("Execution Time (IP): %.2lf ms\n", durationIP);
+    printf("Maximum Cost = %d\n", maxValueIP);
+    printf("Run Time (ms): %.2lf ms\n", durationIP);
 
     printf("===================================================\n");
 
@@ -92,8 +92,8 @@ int main() {
     double mutation_rate = 0.05;
     int elitism_count = 5;
 
-    printf("Genetic Algorithm\n");
-    printf("\nPopulation Size: %d\n", population_size);
+    printf("Genetic Algorithm:\n");
+    printf("Population Size: %d\n", population_size);
     printf("Generations Quantity: %d\n", generations);
     printf("Mutation Rate: %.6f\n", mutation_rate);
     printf("Elitism Count: %d\n", elitism_count);
@@ -101,10 +101,10 @@ int main() {
     clock_t startGA = clock();
     int maxValueGA = genetic_algorithm(maxWeight, items, n, population_size, generations, mutation_rate, elitism_count);
     clock_t stopGA = clock();
-    double durationGA = ((double)(stopGA - startGA)) / CLOCKS_PER_SEC;
+    double durationGA = ((double)(stopGA - startGA)) / CLOCKS_PER_SEC * 1000;
 
-    printf("\nMaximum Cost: %d\n", maxValueGA);
-    printf("Run Time: %.6f seconds\n", durationGA);
+    printf("\nMaximum Cost = %d\n", maxValueGA);
+    printf("Run Time (ms): %.2lf ms\n", durationGA);
 
     printf("===================================================\n");
 
