@@ -12,7 +12,6 @@ This repository provides implementations of various algorithms to solve the 0/1 
 5. [**Simulated Annealing (SA)**](Simulated%20Annealing): Optimization method inspired by annealing in metallurgy.
 6. [**Iterative Improvement (IP)**](Iterativeimprovement): Improves an initial solution iteratively until no better solution is found.
 7. [**Project Knapsack**](Project_Knapsack): A project-specific implementation to solve the Knapsack problem, integrating multiple algorithms for comparison. It includes Genetic Algorithm (GA) with Iterative Improvement (IP) and a time limit feature for optimizing the solution within a specified runtime.
-8. [**Project-2**](Project-2/Project_Knapsack-2.c): An advanced version of Project Knapsack, incorporating additional optimization techniques. It refines the GA with Parallel Processing and introduces a new method of dynamic mutation and selection to improve convergence time and solution quality for larger datasets.
 
 ---
 
@@ -26,7 +25,6 @@ This repository provides implementations of various algorithms to solve the 0/1 
   - [Simulated Annealing](Simulated%20Annealing): `Simulated Annealing/SA.c`, `Simulated Annealing/SA.h`
   - [Iterative Improvement](Iterativeimprovement): `Iterativeimprovement/IP.c`, `Iterativeimprovement/IP.h`
   - [Project Knapsack](Project_Knapsack): `Project_Knapsack/Project_Knapsack.c`, `Project_Knapsack/Project_Knapsack.h`
-  - [Project-2](Project-2/Project_Knapsack-2.c): `Project-2/Project_Knapsack-2.c`, `Project-2/Project_Knapsack-2.h`
   
 - 📄 **Input Files**:
   - `knapsack25.txt`: Input file for a problem with 25 items.
@@ -41,8 +39,6 @@ This repository provides implementations of various algorithms to solve the 0/1 
   - **For `Project-main.c`** (Project-specific implementation using GA with Iterative Improvement):
     - `Run-500.bat`, `Run-1000.bat`: Scripts to run the project-specific implementation with inputs of 500 and 1000 items.
   
-  - **For `Project Knapsack-2`**:
-    -  `2-Run-1000.bat`: Scripts to run the advanced version of Project Knapsack (Project Knapsack-2) with inputs of 1000 items.
 
 ---
 
@@ -56,10 +52,6 @@ gcc -o "main.exe" "main.c" "Bruteforce/BF.c" "Dynamic Programming/DP.c" "Genetic
 ### For Project-main.exe (Project-specific implementation using GA with iterative improvement):
 ```bash
 gcc -o Project-main.exe Project-main.c Project_Knapsack/Project_Knapsack.c -I. -lm
-```
-### For Project-main-2.exe :
-```bash
-gcc -o Project-main-2.exe Project-main.c Project-2/Project_Knapsack-2.c -I. -lm
 ```
 
 
@@ -124,14 +116,4 @@ gcc -o Project-main-2.exe Project-main.c Project-2/Project_Knapsack-2.c -I. -lm
 - It integrates multiple GA techniques, including elitism, crossover, mutation, and adaptive mutation, and applies iterative improvement to refine the solutions.
 - The implementation allows for time-limited execution to explore trade-offs between runtime and result quality.
 - **Time Complexity**: Varies depending on the algorithms used and their respective input parameters.
-
----
-
-### **8. Project-2**  
-- An enhanced version of Project Knapsack, incorporating additional optimization techniques such as parallel processing to speed up solution evaluation and dynamic mutation to better adapt the genetic algorithm.
-- The new parallel processing approach splits the work across multiple threads to reduce computation time, particularly for large datasets.
-- It refines solution quality through adaptive techniques that adjust mutation and selection based on runtime feedback.
-- This version is designed for large-scale problems, offering improved performance and better results in less time.
-- **Time Complexity**: Varies depending on parallelism, input size, and algorithm parameters.  
-
 
