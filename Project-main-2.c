@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "Project_Knapsack/Project_Knapsack.h" // Include Project Knapsack header
+#include "Project-2/Project_Knapsack-2.h" // Include Project Knapsack header
 #include "Item.h"
 
 int main(int argc, char* argv[]) {

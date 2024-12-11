@@ -7,6 +7,8 @@
         "greedy.h": "c",
         "ga.h": "c",
         "ip.h": "c",
-        "random": "c"
+        "random": "c",
+        "item.h": "c",
+        "project_knapsack-2.h": "c"
     }
 }
